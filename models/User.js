@@ -1,3 +1,5 @@
+// 유저와 관련된 데이터들을 보관하기 위한 UserModel - Model은 Schema를 감싸주는 역할
+
 const mongoose = require('mongoose');
 
 const userSchema = mongoose.Schema({
