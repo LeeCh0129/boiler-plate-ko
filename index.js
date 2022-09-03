@@ -3,7 +3,9 @@ const express = require('express')
 const app = express()
 const port = 3000
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose')
+
+const config = require('./config/key');
+
 
 // bodyParser가 클라이언트에서 오는 정보를 서버에서 분석해서 가져올 수 있게함.
 // application/x-www-form-urlencoded
@@ -14,7 +16,8 @@ app.use(bodyParser.json());
 
 
 const { User } = require("./models/User");
-mongoose.connect('mongodb+srv://admin:1424125abb!@cluster0.o2erudw.mongodb.net/?retryWrites=true&w=majority', {
+const mongoose = require('mongoose')
+mongoose.connect(config.mongoURI, {
     useNewUrlParser: true, useUnifiedTopology: true
 }).then(() => console.log('MongoDB Connected...')).catch(err => console.log(err))
 
